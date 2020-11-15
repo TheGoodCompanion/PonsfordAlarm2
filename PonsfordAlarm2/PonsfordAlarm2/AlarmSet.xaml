@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pc="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:local="clr-namespace:PonsfordAlarm2.ViewModels"
+             x:Class="PonsfordAlarm2.AlarmSet">
+
+    <ContentPage.BindingContext>
+        <local:AlarmViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <pc:PancakeView CornerRadius="28">
+                <Button Text="Add" HorizontalOptions="CenterAndExpand" BackgroundColor="#57A75A" TextColor="White" Clicked="Add_Clicked"></Button>
+            </pc:PancakeView>
+            <ListView ItemsSource="{Binding Alarms}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <pc:PancakeView CornerRadius="28">
+                                <Grid HorizontalOptions="FillAndExpand" BackgroundColor="#000000" Margin="5,5,5,5">
+                                    <Label TextColor="White" HorizontalOptions="Center" Text="Alarm"></Label>
+                                </Grid>
+                            </pc:PancakeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

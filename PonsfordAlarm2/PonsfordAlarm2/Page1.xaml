@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PonsfordAlarm2.ViewModels"
+             x:Class="PonsfordAlarm2.Page1">
+    <ContentPage.BindingContext>
+        <local:AlarmViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="entAlarmName" Text="{Binding Name}" Placeholder="Alarm Name" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            <Label Text="Alarm Time" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            <TimePicker HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Time="{Binding AlarmTime}"/>
+            <Button Text="Add Alarm" Command="{Binding AddAlarmCommand}"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
